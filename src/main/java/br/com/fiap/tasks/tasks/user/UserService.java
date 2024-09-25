@@ -18,7 +18,6 @@ public class UserService {
     public User saveUser(User user) {
         User newUser = new User();
         newUser.setName(user.getName());
-        newUser.setEmail(user.getEmail());
         newUser.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(newUser);
     }
