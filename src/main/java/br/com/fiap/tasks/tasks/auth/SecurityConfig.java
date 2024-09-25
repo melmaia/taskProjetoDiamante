@@ -16,6 +16,7 @@ public class SecurityConfig {
     public SecurityFilterChain config(HttpSecurity http, AuthorizationFilter authorizationFilter) throws Exception{
         http
         .authorizeHttpRequests(auth -> auth
+        .requestMatchers(HttpMethod.POST, "/login").permitAll()
         .requestMatchers(HttpMethod.GET, "/tasks").permitAll()
         .requestMatchers(HttpMethod.POST, "/tasks").authenticated()
         .requestMatchers(HttpMethod.PUT, "/tasks/**").authenticated()
